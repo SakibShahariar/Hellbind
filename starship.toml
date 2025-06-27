@@ -1,0 +1,73 @@
+command_timeout = 10000
+
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$cmd_duration\
+$line_break\
+$python\
+$nodejs\
+$rust\
+$golang\
+$package\
+$character
+"""
+
+[cmd_duration]
+min_time = 1000
+show_milliseconds = false
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Videos" = "󰎈 "
+".config" = " "
+
+[git_status]
+use_git_executable = true
+ignore_submodules = false
+format = "$ahead$modified$untracked$renamed$deleted"
+style = "bold red"
+ahead = "⇡:${count} "
+renamed = "»:${count} "
+deleted = "✘:${count} "
+modified = "!:${count} "
+untracked = "?:${count} "
+
+[git_metrics]
+disabled = true
+
+[python]
+symbol = '🐍'
+
+[nodejs]
+symbol = ""
+style = "bold green"
+
+[rust]
+symbol = "🦀"
+style = "bold red"
+
+[golang]
+symbol = ""
+style = "bold cyan"
+
+[package]
+symbol = "📦"
+style = "bold yellow"
+
+[username]
+format = "[$user]($style) "
+show_always = true
+
+[hostname]
+ssh_only = true
+
+[time]
+disabled = false
+format = "🕒 %H:%M"
